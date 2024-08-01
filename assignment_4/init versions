@@ -1,0 +1,61 @@
+
+https://github.com/PromptExpert/cs224n_assignment4_solutions/blob/master/a4_solutions/nmt_model.py
+self.encoder = nn.LSTM(embed_size,hidden_size,bidirectional=True)
+self.decoder = nn.LSTMCell(embed_size+hidden_size,hidden_size) # 需要一个时刻预测一次，所以用Cell
+self.h_projection = nn.Linear(hidden_size*2,hidden_size,bias=False)
+self.c_projection = nn.Linear(hidden_size*2,hidden_size,bias=False)
+self.att_projection = nn.Linear(hidden_size*2,hidden_size,bias=False)
+self.combined_output_projection = nn.Linear(hidden_size*2+hidden_size,hidden_size,bias=False)
+self.target_vocab_projection = nn.Linear(hidden_size,len(self.vocab.tgt),bias=False)
+self.dropout = nn.Dropout(dropout_rate)
+
+https://github.com/yurayli/stanford-cs224n-sol/blob/master/assignment4/nmt_model.py
+self.encoder = nn.LSTM(embed_size, hidden_size, bidirectional=True)
+self.decoder = nn.LSTMCell(embed_size+hidden_size, hidden_size)
+self.h_projection = nn.Linear(2*hidden_size, hidden_size, bias=False)
+self.c_projection = nn.Linear(2*hidden_size, hidden_size, bias=False)
+self.att_projection = nn.Linear(2*hidden_size, hidden_size, bias=False)
+self.combined_output_projection = nn.Linear(3*hidden_size, hidden_size, bias=False)
+self.target_vocab_projection = nn.Linear(hidden_size, len(vocab.tgt), bias=False)
+self.dropout = nn.Dropout(dropout_rate)
+
+
+https://github.com/Algebrazebra/cs224n-a4-nmt/blob/master/nmt_model.py
+self.encoder = torch.nn.LSTM(
+    input_size=embed_size,
+    hidden_size=self.hidden_size,
+    bias=True,
+    bidirectional=True,
+)
+self.decoder = torch.nn.LSTMCell(
+    input_size=embed_size + hidden_size,
+    hidden_size=self.hidden_size,
+    bias=True,
+)
+self.h_projection = torch.nn.Linear(
+    in_features=2 * self.hidden_size, out_features=self.hidden_size, bias=False
+)
+self.c_projection = torch.nn.Linear(
+    in_features=2 * self.hidden_size, out_features=self.hidden_size, bias=False
+)
+self.att_projection = torch.nn.Linear(
+    in_features=2 * self.hidden_size, out_features=self.hidden_size, bias=False
+)
+self.combined_output_projection = torch.nn.Linear(
+    in_features=3 * self.hidden_size, out_features=self.hidden_size, bias=False
+)
+self.target_vocab_projection = torch.nn.Linear(
+    in_features=self.hidden_size, out_features=len(self.vocab.tgt), bias=False
+)
+self.dropout = torch.nn.Dropout(p=self.dropout_rate)
+
+
+self.post_embed_cnn = nn.Conv1d(in_channels=embed_size, out_channels=embed_size, kernel_size=2, padding="same")
+self.encoder = nn.LSTM(input_size=embed_size, hidden_size=hidden_size, bidirectional=True, bias=True)
+self.decoder = nn.LSTMCell(input_size=embed_size+hidden_size, hidden_size=hidden_size, bias=True)
+self.h_projection = nn.Linear(in_features=2*hidden_size, out_features=hidden_size, bias=False)
+self.c_projection = nn.Linear(in_features=2*hidden_size, out_features=hidden_size, bias=False)
+self.att_projection = nn.Linear(in_features=2*hidden_size, out_features=hidden_size, bias=False)
+self.combined_output_projection = nn.Linear(in_features=3*hidden_size, out_features=hidden_size, bias=False)
+self.target_vocab_projection = nn.Linear(in_features=hidden_size, out_features=len(vocab.tgt), bias=False)
+self.dropout = nn.Dropout(p=dropout_rate)

@@ -1,0 +1,12 @@
+sanity_check_en_es_data
+zh_en_data
+runs
+outputs
+src.model
+src.vocab
+tgt.model
+tgt.vocab
+model.bin
+model.bin.optim
+vocab.json
+vocab.py
