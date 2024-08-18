@@ -22,19 +22,4 @@ If a key if very similar to a query, and no other query closely matches a key, t
 
 ## B
 
-### i
-
-We're looking for a matrix such that when M(Va + Vb) = Va, for all Va & Vb in orthogonal subspaces
-
-M is going to be a d x d matrix because it has to multiply Va & Vb.
-
-Va = c1 x a1 + c2 x a2 ... = Ac
-Vb = c'1 x b1 + c'2 x b2 ... = Bc'
-
-We want all the c1 ... to = 1 so they leave Va unchanged
-
-Atranspose x B = 0 because they are orthogonal subspaces
-
-### ii
-
-## C Drawbacks of single headed attention
+[Given as an image from my notebook]
